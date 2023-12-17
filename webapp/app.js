@@ -21,7 +21,7 @@ app.get('/complete/:id', todoController.completeTodo);
 
 // Connect to MongoDB
 mongoose.connect(
-  `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@127.0.0.1:27017/`,
+  `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@mongo:27017/`,
   {
     dbName: 'todo-app'
   }).then(() => {

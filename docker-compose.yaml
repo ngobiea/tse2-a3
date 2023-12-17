@@ -2,10 +2,23 @@ version: "3.8"
 services:
   mongodb:
     image: 'mongo'
-    volumes: 
+    container_name: 'mongo'
+    volumes:
       - data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=salvation
-volumes: 
+    env_file:
+      - ./env/mongo.env
+    restart: always
+  backend:
+    build: ./webapp
+    ports:
+      - '80:80'
+    volumes:
+      - ./webapp:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+
+volumes:
   data:
