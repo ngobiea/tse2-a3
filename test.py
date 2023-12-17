@@ -16,7 +16,7 @@ options.add_argument('--disable-dev-shm-usage')
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-driver.get("http://3.110.188.90")
+driver.get("http://127.0.01")
 print(driver.title)
 try:
     # Test Case 1: Add a goal
@@ -24,7 +24,7 @@ try:
     add_input.send_keys('First Goal')
     add_button = driver.find_element(By.XPATH,'//button[text()="Add"]')
     add_button.click()
-    time.sleep(1)  
+    # time.sleep(1)  
     # Allow time for the item to be added
     
     # Test Case 2: Add multiple goals
@@ -35,7 +35,7 @@ try:
         add_button = driver.find_element(By.XPATH,'//button[text()="Add"]')
         add_button.click()
         # Allow time for the item to be added
-        time.sleep(1)  
+        # time.sleep(1)  
 
     # # Test Case 3: Check if todos are displayed
     todo_list = driver.find_element(By.TAG_NAME,'ul')
