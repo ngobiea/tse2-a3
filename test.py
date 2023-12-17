@@ -48,5 +48,5 @@ except Exception as e:
     print("Test failed:", e)
 
 finally:
-    # driver.quit()
     print("Done")
+    # driver.quit()
