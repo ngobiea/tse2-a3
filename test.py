@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 options = Options()
-service = Service(executable_path=r'/usr/bin/chromedriver')
+# service = Service(executable_path=r'/usr/bin/chromedriver')
 options.add_argument("start-maximized")
 options.add_argument("disable-infobars"); 
 options.add_argument("--disable-extensions")
