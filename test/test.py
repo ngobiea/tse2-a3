@@ -7,12 +7,12 @@ from selenium.webdriver.common.by import By
 
 options = Options()
 service = Service(executable_path=r'/usr/bin/chromedriver')
-options.addArguments("start-maximized"); // open Browser in maximized mode
-options.addArguments("disable-infobars"); // disabling infobars
-options.addArguments("--disable-extensions"); // disabling extensions
-options.addArguments("--disable-gpu"); // applicable to windows os only
-options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-options.addArguments("--no-sandbox"); // Bypass OS security model
+options.add_argument("start-maximized")
+options.add_argument("disable-infobars"); 
+options.add_argument("--disable-extensions")
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
 driver = webdriver.Chrome(service=service, options=options)
 
