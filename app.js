@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -20,12 +21,12 @@ app.get('/complete/:id', todoController.completeTodo);
 
 // Connect to MongoDB
 mongoose.connect(
-  `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@mongodb:27017/`,
+  `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@127.0.0.1:27017/`,
   {
     dbName: 'todo-app'
   }).then(() => {
-    app.listen(80, () => {
-      console.log('Server started on port 80');
+    app.listen(process.env.PORT, () => {
+      console.log('Server started on port ' + process.env.PORT + '...');
     });
   }).catch((err) => {
     console.log(err);

@@ -4,20 +4,8 @@ services:
     image: 'mongo'
     volumes: 
       - data:/data/db
-    env_file: 
-      - ./env/mongo.env
-  backend:
-    build: ./webapp
-    ports:
-      - '80:80'
-    volumes: 
-      - ./webapp:/app
-      - /app/node_modules
-    env_file: 
-      - ./env/backend.env
-    depends_on:
-      - mongodb
-
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=salvation
 volumes: 
   data:
-  logs:
