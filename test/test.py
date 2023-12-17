@@ -13,7 +13,7 @@ options.add_argument('--disable-dev-shm-usage')
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-driver.get("http://127.0.0.1")
+driver.get("http://3.110.188.90")
 print(driver.title)
 try:
     # Test Case 1: Add a goal
